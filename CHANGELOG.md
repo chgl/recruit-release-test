@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.5](https://github.com/chgl/recruit-release-test/compare/v10.0.4...v10.0.5) (2023-01-06)
+
+
+### CI/CD
+
+* possibly fixed helm chart download ([55f1fb9](https://github.com/chgl/recruit-release-test/commit/55f1fb9eecad695e2df2ac34fdcf059d44fa0445))
+
 ## [10.0.4](https://github.com/chgl/recruit-release-test/compare/v10.0.3...v10.0.4) (2023-01-06)
 
 
