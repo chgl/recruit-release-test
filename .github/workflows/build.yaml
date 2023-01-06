@@ -178,6 +178,5 @@ jobs:
 
       - name: Attest image vulnerability report
         run: |
-          ls -lsaR /tmp
           echo "Attest vulnerability report for '$IMAGE' using keyless approach"
           cosign attest --type vuln --predicate /tmp/trivy-vuln-attestation.json "$IMAGE"
