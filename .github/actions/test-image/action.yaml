@@ -20,12 +20,14 @@ runs:
   steps:
     - name: Download artifact
       uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3.0.0
+      if: ${{ github.event_name == 'pull_request' }}
       with:
         name: ${{ inputs.project-name }}-build-artifacts
         path: /tmp
 
     - name: Load image
       shell: bash
+      if: ${{ github.event_name == 'pull_request' }}
       run: |
         docker load --input /tmp/${{ inputs.project-name }}-image.tar
         docker image ls -a
