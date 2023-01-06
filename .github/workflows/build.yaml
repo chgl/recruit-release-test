@@ -1,7 +1,6 @@
 name: "build container image"
 
-permissions:
-  contents: read
+permissions: read-all
 
 on:
   workflow_call:
