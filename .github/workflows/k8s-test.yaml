@@ -1,7 +1,6 @@
-name: "integration test"
+name: "k8s test"
 
-permissions:
-  contents: read
+permissions: read-all
 
 on:
   workflow_call:
