@@ -70,6 +70,7 @@ jobs:
         uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
         with:
           name: release-assets
+          path: /tmp
 
       - name: Create dist dir
         run: |
@@ -77,7 +78,8 @@ jobs:
 
       - name: Add Helm chart to dist
         run: |
-          cp release-assets/recruit-helm-chart.tgz dist/
+          ls -lsa /tmp
+          cp /tmp/recruit-helm-chart.tgz dist/
 
       # TODO: replace tags with digests in compose - requires waiting for ci/build to be completed
       #       turn this workflow into a reusable one and call it at the end of ci.yaml
