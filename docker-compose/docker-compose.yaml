@@ -1,6 +1,6 @@
 services:
   list:
-    image: ghcr.io/miracum/recruit/list:v2.15.6 # x-release-please-version
+    image: ghcr.io/miracum/recruit/list:v10.0.0 # x-release-please-version
     restart: unless-stopped
     ipc: none
     security_opt:
@@ -29,7 +29,7 @@ services:
       - ${NOTIFY_RULES_CONFIG_PATH:?}:/etc/rules.yaml:ro
 
   query:
-    image: ghcr.io/miracum/recruit/query:v3.16.4 # x-release-please-version
+    image: ghcr.io/miracum/recruit/query:v10.0.0 # x-release-please-version
     restart: unless-stopped
     ipc: none
     security_opt:
@@ -67,7 +67,7 @@ services:
           size: 1024
 
   notify:
-    image: ghcr.io/miracum/recruit/notify:v3.2.5 # x-release-please-version
+    image: ghcr.io/miracum/recruit/notify:v10.0.0 # x-release-please-version
     restart: unless-stopped
     ipc: none
     security_opt:
