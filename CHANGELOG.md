@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.1](https://github.com/chgl/recruit-release-test/compare/v10.0.0...v10.0.1) (2023-01-06)
+
+
+### CI/CD
+
+* run release on releases created ([078f27f](https://github.com/chgl/recruit-release-test/commit/078f27f6a507d8192664a8a2cf8a06572eb7ea6d))
+
 ## [10.0.0](https://github.com/chgl/recruit-release-test/compare/v9.16.0...v10.0.0) (2023-01-06)
 
 
