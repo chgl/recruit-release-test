@@ -21,6 +21,7 @@ jobs:
           pull-request-title-pattern: "chore: release ${version}"
           extra-files: |
             charts/recruit/Chart.yaml
+            charts/recruit/values.yaml
             src/list/Dockerfile
             src/buildSrc/src/main/groovy/org.miracum.recruit.java-common-conventions.gradle
             src/notify/src/main/resources/application.yml
