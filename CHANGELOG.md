@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.0.4](https://github.com/chgl/recruit-release-test/compare/v10.0.3...v10.0.4) (2023-01-06)
+
+
+### CI/CD
+
+* fix k8s workflow call ([2f33272](https://github.com/chgl/recruit-release-test/commit/2f3327289a506c472ff831f6d5d4889d93fd6ae8))
+* fix needs names ([c864caa](https://github.com/chgl/recruit-release-test/commit/c864caa5dfc802c89cef648a739681679649e4ba))
+
 ## [10.0.3](https://github.com/chgl/recruit-release-test/compare/v10.0.2...v10.0.3) (2023-01-06)
 
 
