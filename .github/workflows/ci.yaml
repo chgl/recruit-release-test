@@ -6,6 +6,11 @@ on:
   push:
     branches:
       - master
+  release:
+    types:
+      # If you want a workflow to run when stable and pre-releases publish, subscribe to published instead of released and prereleased.
+      # <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release>
+      - published
 
 permissions: read-all
 
