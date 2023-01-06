@@ -32,15 +32,24 @@ runs:
         docker load --input /tmp/${{ inputs.project-name }}-image.tar
         docker image ls -a
 
+    - name: Pull image if not in PR
+      shell: bash
+      if: ${{ github.event_name != 'pull_request' }}
+      env:
+        IMAGE_TAG: ${{ inputs.image-tag }}
+      run: |
+        docker pull "${IMAGE_NAME}:${IMAGE_TAG}"
+        docker image ls -a
+
     - name: Run container structure tests
       shell: bash
       env:
-        IMAGE: ${{ inputs.image-name }}:${{ inputs.image-tag }}
+        IMAGE_TAG: ${{ inputs.image-tag }}
       run: |
         curl -LO https://github.com/GoogleContainerTools/container-structure-test/releases/download/v1.14.0/container-structure-test-linux-amd64
         chmod +x container-structure-test-linux-amd64
 
-        ./container-structure-test-linux-amd64 test --image="$IMAGE" --config=tests/container-structure/common-tests.yaml
+        ./container-structure-test-linux-amd64 test --image="${IMAGE_NAME}:${IMAGE_TAG}" --config=tests/container-structure/common-tests.yaml
 
     - name: Run isolated smoke test
       shell: bash
@@ -52,7 +61,7 @@ runs:
         docker compose -f ${{ inputs.e2e-test-directory }}/docker-compose.yaml run tester
 
     - name: Print test logs and stop all running containers
-      if: always()
+      if: ${{ always() }}
       shell: bash
       working-directory: src/${{ inputs.project-name }}
       env:
