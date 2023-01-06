@@ -48,7 +48,7 @@ jobs:
 
       - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
-          name: release-assets
+          name: helm-chart
           path: |
             recruit-helm-chart.tgz
 
@@ -69,7 +69,7 @@ jobs:
       - name: Download Helm chart
         uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
         with:
-          name: release-assets
+          name: helm-chart
           path: /tmp
 
       - name: Create dist dir
@@ -83,24 +83,18 @@ jobs:
 
       # TODO: replace tags with digests in compose - requires waiting for ci/build to be completed
       #       turn this workflow into a reusable one and call it at the end of ci.yaml
-      #       yq '(.services[].image | select(. == "ghcr.io/miracum/recruit/list:*")) += "@sha256:123456"'  docker-compose/docker-compose.yaml
+      #       yq '(.services[].image | select(. == "ghcr.io/miracum/recruit/list:*")) += "@sha256:123456"' docker-compose/docker-compose.yaml
       - name: Build Docker Compose deployment bundle
         run: |
           cp -r docker-compose/ dist/
           tar -C dist -zcvf dist/recruit-docker-compose.tgz docker-compose/
 
-      - name: Build SBOM bundle from container images
-        run: |
-          ./.github/generate-sboms.sh
-          cp -r sboms/ dist/
-          tar -C dist -zcvf dist/recruit-container-sboms.tgz sboms/
-
       - name: Generate SLSA subject for release assets
         id: hash
         working-directory: dist
         run: |
-          sha256sum recruit-docker-compose.tgz recruit-container-sboms.tgz recruit-helm-chart.tgz > recruit-hashes.sha256
-          echo "hashes=$(base64 -w0 < recruit-hashes.sha256)" >> "$GITHUB_OUTPUT"
+          sha256sum recruit-docker-compose.tgz recruit-helm-chart.tgz > checksums.sha256
+          echo "hashes=$(base64 -w0 < checksums.sha256)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3.1.0
         with:
@@ -134,6 +128,11 @@ jobs:
         uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
         with:
           name: release-assets
+
+      - name: Download attestation
+        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
+        with:
+          name: "${{ needs.provenance.outputs.attestation-name }}"
 
       - name: upload assets to release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # tag=v1
