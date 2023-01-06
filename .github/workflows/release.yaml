@@ -3,13 +3,18 @@ name: release
 on:
   workflow_call: {}
 
-permissions: read-all
+permissions:
+  packages: write
+  actions: read # To read the workflow path.
+  id-token: write # To sign the provenance.
+  contents: write # To add assets to a release.
 
 jobs:
   publish-helm-chart:
     name: publish helm chart
     runs-on: ubuntu-22.04
     permissions:
+      contents: read
       packages: write
     steps:
       - name: Checkout
@@ -55,6 +60,8 @@ jobs:
       - publish-helm-chart
     outputs:
       hashes: ${{ steps.hash.outputs.hashes }}
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
