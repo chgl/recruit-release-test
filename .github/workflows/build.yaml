@@ -25,6 +25,8 @@ env:
 
 jobs:
   build:
+    permissions:
+      packages: write
     runs-on: ubuntu-22.04
     outputs:
       image: ${{ env.IMAGE_NAME }}
