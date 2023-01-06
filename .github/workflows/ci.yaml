@@ -11,6 +11,9 @@ permissions: read-all
 
 jobs:
   build:
+    permissions:
+      id-token: write # for creating OIDC tokens for signing.
+      packages: write # for uploading container images, signatures, and attestations.
     strategy:
       matrix:
         include:
