@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.6](https://github.com/chgl/recruit-release-test/compare/v10.0.5...v10.0.6) (2023-01-06)
+
+
+### CI/CD
+
+* fix release ([d0ad6a9](https://github.com/chgl/recruit-release-test/commit/d0ad6a9729a8b86ad427b36b6329ab38229df1a7))
+
 ## [10.0.5](https://github.com/chgl/recruit-release-test/compare/v10.0.4...v10.0.5) (2023-01-06)
 
 
