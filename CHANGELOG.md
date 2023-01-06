@@ -1,5 +1,17 @@
 # Changelog
 
+## [10.0.2](https://github.com/chgl/recruit-release-test/compare/v10.0.1...v10.0.2) (2023-01-06)
+
+
+### Build
+
+* fix container created at label to 1970-01-01T00:00:00Z ([bb8e2aa](https://github.com/chgl/recruit-release-test/commit/bb8e2aa6e551da2230ea1219ecc30ed8a1c14027))
+
+
+### CI/CD
+
+* fix compose installation test ([4298cf9](https://github.com/chgl/recruit-release-test/commit/4298cf91a0e9880f8fc2be28d1a90c223bf3312e))
+
 ## [10.0.1](https://github.com/chgl/recruit-release-test/compare/v10.0.0...v10.0.1) (2023-01-06)
 
 
