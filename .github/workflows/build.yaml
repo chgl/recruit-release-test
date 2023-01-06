@@ -1,6 +1,10 @@
 name: "build container image"
 
-permissions: read-all
+permissions:
+  actions: read
+  contents: read
+  id-token: write # for creating OIDC tokens for signing.
+  packages: write # for uploading container images, signatures, and attestations.
 
 on:
   workflow_call:
@@ -25,6 +29,7 @@ env:
 jobs:
   build:
     permissions:
+      contents: read
       packages: write
     runs-on: ubuntu-22.04
     outputs:
@@ -122,6 +127,7 @@ jobs:
     needs:
       - build
     permissions:
+      actions: read
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
     if: ${{ startsWith(github.ref, 'refs/tags/') }}
@@ -142,6 +148,7 @@ jobs:
     needs:
       - build
     permissions:
+      contents: read
       id-token: write
       packages: write
     env:
