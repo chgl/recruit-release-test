@@ -18,6 +18,7 @@ jobs:
         with:
           token: ${{ secrets.MIRACUM_BOT_SEMANTIC_RELEASE_TOKEN }}
           release-type: simple
+          pull-request-title-pattern: "chore: release ${version}"
           extra-files: |
             charts/recruit/Chart.yaml
             src/list/Dockerfile

@@ -32,7 +32,6 @@ runs:
 
     - name: Run container structure tests
       shell: bash
-      working-directory: src
       env:
         IMAGE: ${{ inputs.image-name }}:${{ inputs.image-tag }}
       run: |
