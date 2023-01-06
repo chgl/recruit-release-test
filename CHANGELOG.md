@@ -1,5 +1,17 @@
 # Changelog
 
+## [10.0.3](https://github.com/chgl/recruit-release-test/compare/v10.0.2...v10.0.3) (2023-01-06)
+
+
+### Bug Fixes
+
+* list jwt error ([f54c06d](https://github.com/chgl/recruit-release-test/commit/f54c06df8be7dd1c82221299b412769e01b01f85))
+
+
+### CI/CD
+
+* updated curl and renamed helm integration test ([30960dc](https://github.com/chgl/recruit-release-test/commit/30960dcf02b2a3b8944e036c7144382a012a93b2))
+
 ## [10.0.2](https://github.com/chgl/recruit-release-test/compare/v10.0.1...v10.0.2) (2023-01-06)
 
 
