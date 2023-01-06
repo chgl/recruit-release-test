@@ -61,15 +61,15 @@ jobs:
           image-tag: ${{ needs.build.outputs.image-tag }}
           e2e-test-directory: ${{ matrix.e2e-test-directory }}
 
-  integration-tests:
+  k8s-test:
     needs:
       - build
       - test
-    uses: ./.github/workflows/integration-test.yaml
+    uses: ./.github/workflows/test-k8s-installation.yaml
     with:
       image-tag: ${{ needs.build.outputs.image-tag }}
 
-  docker-compose-tests:
+  docker-compose-test:
     # the docker compose image tags only change on releases, so
     # it's sufficient to just run tests then.
     if: ${{ startsWith(github.ref, 'refs/tags/') }}
