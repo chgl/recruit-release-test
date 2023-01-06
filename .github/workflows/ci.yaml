@@ -88,6 +88,6 @@ jobs:
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading container images, signatures, and attestations.
     needs:
-      - integration-tests
-      - docker-compose-tests
+      - k8s-test
+      - docker-compose-test
     uses: ./.github/workflows/release.yaml
