@@ -59,11 +59,14 @@ jobs:
               --version 0.20.8
 
       - name: Load container images
+        if: ${{ github.event_name == 'pull_request' }}
         run: |
           kind load image-archive /tmp/query-build-artifacts/query-image.tar
           kind load image-archive /tmp/list-build-artifacts/list-image.tar
           kind load image-archive /tmp/notify-build-artifacts/notify-image.tar
 
+      - name: Load tester image
+        run: |
           kind load docker-image ghcr.io/miracum/recruit/tester:v1
 
       - name: Prepare helm chart dependencies
