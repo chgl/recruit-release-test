@@ -16,6 +16,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+      # needed for cosign
+      id-token: write
     env:
       COSIGN_EXPERIMENTAL: "true"
     steps:
