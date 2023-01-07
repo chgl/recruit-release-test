@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.9](https://github.com/chgl/recruit-release-test/compare/v10.0.8...v10.0.9) (2023-01-07)
+
+
+### CI/CD
+
+* sign helm chart ([f5133c2](https://github.com/chgl/recruit-release-test/commit/f5133c291919d937261bf8bf1067c3d99f1f3d4d))
+
 ## [10.0.8](https://github.com/chgl/recruit-release-test/compare/v10.0.7...v10.0.8) (2023-01-07)
 
 
