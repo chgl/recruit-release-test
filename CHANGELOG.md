@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.10](https://github.com/chgl/recruit-release-test/compare/v10.0.9...v10.0.10) (2023-01-07)
+
+
+### CI/CD
+
+* fixed cosign perms for helm chart signing ([ab985e0](https://github.com/chgl/recruit-release-test/commit/ab985e0e4e5c1c52ce2fac770a85004b7a8f1aba))
+
 ## [10.0.9](https://github.com/chgl/recruit-release-test/compare/v10.0.8...v10.0.9) (2023-01-07)
 
 
