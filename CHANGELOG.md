@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.0.7](https://github.com/chgl/recruit-release-test/compare/v10.0.6...v10.0.7) (2023-01-07)
+
+
+### CI/CD
+
+* possibly fixed release uploads ([234be68](https://github.com/chgl/recruit-release-test/commit/234be68da9fd935814517321e606498ddeb4e81a))
+* use provenance generator upload ([40c752e](https://github.com/chgl/recruit-release-test/commit/40c752e1b99f0103fd211c07d66656bd7f693b2b))
+
 ## [10.0.6](https://github.com/chgl/recruit-release-test/compare/v10.0.5...v10.0.6) (2023-01-06)
 
 
