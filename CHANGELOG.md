@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.8](https://github.com/chgl/recruit-release-test/compare/v10.0.7...v10.0.8) (2023-01-07)
+
+
+### CI/CD
+
+* gave write permnissions for contents ([ff1cfe5](https://github.com/chgl/recruit-release-test/commit/ff1cfe583264d7dfc5841c3f7cb2b69fc43a8c90))
+
 ## [10.0.7](https://github.com/chgl/recruit-release-test/compare/v10.0.6...v10.0.7) (2023-01-07)
 
 
