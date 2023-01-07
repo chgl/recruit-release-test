@@ -128,16 +128,21 @@ jobs:
         uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
         with:
           name: release-assets
+          path: /tmp
 
       - name: Download attestation
         uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
         with:
           name: "${{ needs.provenance.outputs.attestation-name }}"
+          path: /tmp
+
+      - run: |
+          ls -lsa /tmp
 
       - name: upload assets to release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # tag=v1
         with:
           files: |
-            "${{ needs.provenance.outputs.attestation-name }}"
-            release-assets/*.tgz
-            release-assets/*.sha256
+            /tmp/${{ needs.provenance.outputs.attestation-name }}
+            /tmp/release-assets/*.tgz
+            /tmp(release-assets/*.sha256
